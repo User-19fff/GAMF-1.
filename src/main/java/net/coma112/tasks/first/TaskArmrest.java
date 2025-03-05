@@ -1,4 +1,4 @@
-package net.coma112.tasks;
+package net.coma112.tasks.first;
 
 import lombok.NonNull;
 import net.coma112.utils.FileUtils;
@@ -32,28 +32,18 @@ public class TaskArmrest {
     public static int countABCSequence() {
         String content = getContent();
         int count = 0;
-        int i = 0;
+        int length = content.length();
 
-        while (i < content.length() - 2) {
+        for (int i = 0; i < length; i++) {
             if (content.charAt(i) == 'a') {
-                int j = i + 1;
-
-                while (j < content.length() && content.charAt(j) != 'b') {
-                    j++;
-                }
-                if (j < content.length() && content.charAt(j) == 'b') {
-                    int k = j + 1;
-
-                    while (k < content.length() && content.charAt(k) != 'c') {
-                        k++;
+                for (int j = i + 1; j < length; j++) {
+                    if (content.charAt(j) == 'b') {
+                        for (int k = j + 1; k < length; k++) {
+                            if (content.charAt(k) == 'c') count++;
+                        }
                     }
-
-                    if (k < content.length() && content.charAt(k) == 'c') {
-                        count++;
-                        i = k;
-                    } else i = j + 1;
-                } else i = j + 1;
-            } else i++;
+                }
+            }
         }
 
         return count;

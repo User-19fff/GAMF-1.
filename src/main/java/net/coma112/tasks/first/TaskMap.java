@@ -1,4 +1,4 @@
-package net.coma112.tasks;
+package net.coma112.tasks.first;
 
 import lombok.NonNull;
 import net.coma112.data.MapData;
@@ -44,7 +44,6 @@ public class TaskMap {
 
         return new MapData(waterSpread, low10);
     }
-
 
     private static @NonNull MapData floodFill(int[][] map, boolean[][] visited, int x, int y) {
         int count = DEFAULT_VALUE;

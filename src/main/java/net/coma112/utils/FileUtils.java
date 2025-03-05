@@ -10,6 +10,7 @@ import java.nio.file.StandardCopyOption;
 
 @UtilityClass
 public class FileUtils {
+    // Egyebkent lehet itt is akar a getContent de most nem baj, nem a performancere torekszunk 😎
     private static final String SUFFIX = ".txt";
 
     public Path getTextFile(@NonNull String fileName) {

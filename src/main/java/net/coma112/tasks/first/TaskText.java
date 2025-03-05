@@ -1,4 +1,4 @@
-package net.coma112.tasks;
+package net.coma112.tasks.first;
 
 import lombok.NonNull;
 import net.coma112.utils.FileUtils;
@@ -12,19 +12,23 @@ import java.util.Set;
 public class TaskText {
     public static int findDistanceBetweenArticles() {
         String content = getContent();
-        String[] words = content.split("\\s+");
+        content = content.replace("\n", " ");
         int maxDistance = 0;
-        int lastArticleIndex = -1;
+        int lastArticlePos = -1;
 
-        for (int i = 0; i < words.length; i++) {
-            if (words[i].equals("A") || words[i].equals("AZ")) {
-                if (lastArticleIndex != -1) {
-                    int distance = i - lastArticleIndex - 1;
+        String[] words = content.split("\\s+");
+        int pos = 0;
+
+        for (String word : words) {
+            if (word.equals("A") || word.equals("AZ")) {
+                if (lastArticlePos != -1) {
+                    int distance = pos - lastArticlePos - word.length();
                     maxDistance = Math.max(maxDistance, distance);
                 }
 
-                lastArticleIndex = i;
+                lastArticlePos = pos;
             }
+            pos += word.length() + 1;
         }
 
         return maxDistance;
