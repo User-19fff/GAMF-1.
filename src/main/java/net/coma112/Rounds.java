@@ -6,6 +6,8 @@ import net.coma112.tasks.first.TaskText;
 import net.coma112.tasks.second.TaskDate;
 import net.coma112.tasks.second.TaskDicePoker;
 import net.coma112.tasks.second.TaskEncryption;
+import net.coma112.tasks.third.EulerProject;
+import net.coma112.tasks.third.VirusSpread;
 
 public class Rounds {
     public static void main(String[] args) {
@@ -33,6 +35,14 @@ public class Rounds {
 
         System.out.println("3, a) " + TaskEncryption.TaskThreeA());
         System.out.println("3, b) " + TaskEncryption.TaskThreeB());
-        System.out.println("3, c) " + TaskEncryption.TaskThreeC());
+        System.out.println("3, c) " + TaskEncryption.TaskThreeC() + "\n");
+
+        System.out.println("3, a) " + EulerProject.countNumberQuadruplesWithAtLeastSixPrimes());
+        System.out.println("3, b) " + EulerProject.findArithmeticSequence() +"\n");
+
+        System.out.println("4, a) " + VirusSpread.getInfectedCountAfter11Steps());
+        System.out.println("4, b) " + VirusSpread.getStepWhenNoInfected());
+
+
     }
 }
